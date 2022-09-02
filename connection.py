@@ -22,6 +22,15 @@ def select_usuarios(con):
 
     cursor.close()
 
+#UPDATE empregados set nome='João da Silva',cidade='São Paulo' where codigo_empregado=2
+
+def update_usuarios(con, nome, email, id):
+    cursor = con.cursor()
+    sql = "UPDATE alunos set nome='%s',email='%s' where id='%s'"
+    valores = (nome, email, id)
+    cursor.execute(sql, valores)
+    con.commit()
+
 def del_usuarios(con):
     cursor = con.cursor()
     sql = "DELETE FROM alunos WHERE id = 1"
